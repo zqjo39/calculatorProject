@@ -6,6 +6,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <div class="content">
+            <h1>Calculator</h1>
+            <div>
+                <label for="first">Number One</label>
+                <input type="text" id="first" placeholder="i.e. 2, 6, 11">
+            </div>
+            <div>
+                <label for="equations">Please Choose One</label>
+                <select name="equations" id="equations">
+                    <option value="add">+</option>
+                    <option value="sub">-</option>
+                    <option value="mult">*</option>
+                    <option value="div">/</option>
+                    <option value="rem">%</option>
+                </select>
+            </div>
+            <div>
+                <label for="last">Number Two</label>
+                <input type="text" id="last" placeholder="i.e. 3, 7, 10">
+            </div>
+            <button type="button" id="solve">Solve</button>
+        </div>
+    </div>
 
+    <script>
+        const boxOne = document.getElementById('first');
+        const boxTwo = document.getElementById('last');
+
+        const solve = document.getElementById('solve')
+    </script>
 </body>
 </html>
