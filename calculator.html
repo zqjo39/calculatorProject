@@ -28,14 +28,63 @@
                 <input type="text" id="last" placeholder="i.e. 3, 7, 10">
             </div>
             <button type="button" id="solve">Solve</button>
+            <div class="insert">
+
+            </div>
         </div>
     </div>
 
     <script>
+        const insert = document.querySelector('.insert');
         const boxOne = document.getElementById('first');
         const boxTwo = document.getElementById('last');
+        const choiceBox = document.getElementById('equations')
 
         const solve = document.getElementById('solve')
+
+        function checkIfValid(num) {
+            if (isNaN(num)) {
+                return false;
+            }
+            if (num <= 0) {
+                return false;
+            }
+            return true;
+        };
+
+        solve.addEventListener('click', function(e) {
+            const answer = document.createElement('p')
+            if (choiceBox.value == 'add') {
+                let addendOne = +boxOne.value;
+                let addendTwo = +boxTwo.value;
+                let sum = addendOne + addendTwo;
+                answer.innerHTML = `${addendOne} + ${addendTwo} = ${sum}`;
+            } else if (choiceBox.value == 'sub') {
+                let minuend = +boxOne.value;
+                let subtrahend = +boxTwo.value;
+                let difference = minuend - subtrahend;
+                answer.innerHTML = `${minuend} - ${subtrahend} = ${difference}`;
+            } else if (choiceBox.value == 'mult') {
+                let multplicand = +boxOne.value;
+                let multiplier = +boxTwo.value;
+                let product = multplicand * multiplier;
+                answer.innerHTML = `${multplicand} * ${multiplier} = ${product}`;
+            } else if (choiceBox.value == 'div') {
+                let dividend = +boxOne.value;
+                let divisor = +boxTwo.value;
+                let quotient = dividend / divisor;
+                answer.innerHTML = `${dividend} / ${divisor} = ${quotient}`;
+            } else if (choiceBox.value == 'rem') {
+                let dividendRem = +boxOne.value;
+                let divisorRem = +boxTwo.value;
+                let remainder = dividendRem % divisorRem;
+                let quotient = (dividendRem - remainder) / divisorRem;
+                answer.innerHTML = `${dividendRem} % ${divisorRem} = ${remainder}`;
+            }
+            insert.insertAdjacentElement('afterbegin', answer);
+            boxOne.value = "";
+            boxTwo.value = "";
+        })
     </script>
 </body>
 </html>
